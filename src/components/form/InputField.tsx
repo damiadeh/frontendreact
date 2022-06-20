@@ -1,5 +1,3 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import { InputFieldProps } from '../../interfaces/props/TableProps'
 import { Option } from '../../interfaces/dtos'
 

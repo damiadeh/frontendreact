@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
-import { FieldData, Option } from '../../interfaces/dtos'
+import { useEffect, useState } from 'react'
+import { FieldData } from '../../interfaces/dtos'
 import { getFormValueKey, getTableDataValue } from '../../utils/helpers';
 import InputField from './InputField';
 
@@ -11,7 +10,7 @@ const FormField = ({ structure, value }: FieldData) => {
         let objKey =  getFormValueKey(structure.name);
         let formValue = getTableDataValue(value[objKey])
         setInputValue(formValue)
-    }, [value])
+    }, [structure,value])
 
     return (
         <div className='form-box'>
@@ -19,7 +18,5 @@ const FormField = ({ structure, value }: FieldData) => {
         </div>
     )
 }
-
-FormField.propTypes = {}
 
 export default FormField

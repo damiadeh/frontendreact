@@ -7,7 +7,7 @@ import { FormProps } from '../../interfaces/props/TableProps'
 import { StoreContext } from '../../context/store'
 
 const Form = ({ data, cancel }: FormProps) => {
-    const { state, dispatch } = useContext(StoreContext);
+    const { state } = useContext(StoreContext);
     return (
         <Container>
             {data.forms.map((form: any, index: number) =>
@@ -28,6 +28,9 @@ const Form = ({ data, cancel }: FormProps) => {
     )
 }
 
-Form.propTypes = {}
+Form.propTypes = {
+    data: PropTypes.object.isRequired,
+    cancel: PropTypes.func
+}
 
 export default Form

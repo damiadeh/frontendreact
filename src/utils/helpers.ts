@@ -18,7 +18,7 @@ export function getTableDataValue(input:any): any {
 
 export function getFormValueKey(input:string): string {
     let key = lowerCasedFirstLetter(input);
-    if(key == "knownErrorTypeId") return "type"
+    if(key === "knownErrorTypeId") return "type"
     return key;
 }
 

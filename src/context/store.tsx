@@ -1,5 +1,4 @@
 import React, { createContext, useReducer } from "react";
-import { TableData } from "../interfaces/dtos";
 import * as actions from "./actions";
 
 type AppState = typeof initialState;

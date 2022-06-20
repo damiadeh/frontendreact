@@ -6,8 +6,9 @@ import formData from '../datasource/form.json';
 import { Check, Clear } from '@mui/icons-material';
 import { Grid } from '@mui/material';
 import Form from '../components/form/Form';
-import { StoreContext, StoreProvider } from '../context/store';
+import { StoreContext } from '../context/store';
 import { SET_HIDDEN_TABLE_COLUMNS, SET_SELECTED_TABLE_DATA, SET_TABLE_DATA } from '../context/actions';
+import moment from 'moment';
 
 const Home = () => {
   const { state, dispatch } = useContext(StoreContext);
@@ -28,7 +29,7 @@ const Home = () => {
     if(width <= 900) dispatch({type:SET_HIDDEN_TABLE_COLUMNS,payload:[6,7,8,9,10]})
     if(width <= 700) dispatch({type:SET_HIDDEN_TABLE_COLUMNS,payload:[]})
     if(width > 1400) dispatch({type:SET_HIDDEN_TABLE_COLUMNS,payload:[]})
-  },[width]);
+  },[dispatch,width]);
 
   useEffect(() => {
     let tableData: TableData[] = [];
@@ -47,12 +48,12 @@ const Home = () => {
         status: data.status,
         service: data.service,
         author: data.author,
-        created: data.createdOn,
-        updated: data.updatedOn
+        created: moment(data.createdOn).format("DD/MM/YYYY hh:mm:ss"),
+        updated:moment(data.updatedOn).format("DD/MM/YYYY hh:mm:ss") 
       })
     }
     dispatch({ type: SET_TABLE_DATA, payload: tableData })
-  }, [])
+  }, [dispatch])
 
   const onRowClick = (rowData: any) => {
     dispatch({ type: SET_SELECTED_TABLE_DATA, payload: rowData })
