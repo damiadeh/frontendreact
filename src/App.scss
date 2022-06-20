@@ -1,0 +1,127 @@
+$bg-color: #ececec;
+$primary-color: #000;
+$light-color: #fff;
+$border-color: #ddd;
+
+@mixin break {
+  thead {
+    display: none;
+  }
+
+  tr {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  td {
+    display: block;
+    position: relative;
+    padding-left: 130px;
+    text-align: left;
+    width: 90vw;
+    border-bottom: 0;
+
+    &:last-child {
+      border-bottom: 1px solid $border-color;
+    }
+
+    &::before {
+      content: attr(data-heading);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 120px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      background-color: $primary-color;
+      color: $light-color;
+      font-size: 0.75rem;
+      padding: 0 5px;
+      justify-content: center;
+    }
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.header {
+  padding: 50px 15px;
+  background-color: $bg-color;
+  text-align: center;
+  margin-bottom: 40px;
+
+  h1 {
+    font-size: 40px;
+    font-weight: 300;
+  }
+}
+
+.right-grid {
+  background-color: $bg-color;
+  height: 100vh;
+  padding: 40px 30px;
+}
+
+.input-text {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.form-box {
+  margin: 15px 0;
+}
+
+.form-header {
+  margin-top: 20px;
+}
+
+.btn-close {
+  padding: 10px 30px;
+  background-color: rgb(235, 107, 107);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+}
+
+.table-container {
+  max-width: 90%;
+  margin: 40px auto;
+  overflow-x: scroll;
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+
+      tr {
+        background-color: transparent;
+      }
+    }
+
+    td,
+    th {
+      border: 1px solid $border-color;
+      padding: 10px;
+      text-align: center;
+      // white-space: nowrap;
+      // overflow: hidden;
+      // text-overflow: ellipsis;
+    }
+
+    &--break {
+
+      @media (max-width: 700px) {
+        @include break;
+      }
+    }
+  }
+}
