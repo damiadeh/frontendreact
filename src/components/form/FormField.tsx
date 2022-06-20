@@ -5,16 +5,18 @@ import InputField from './InputField';
 
 const FormField = ({ structure, value }: FieldData) => {
     const [inputValue, setInputValue] = useState<any>("");
-    
+    const [valueKey, setValueKey] = useState<string>("");
+
     useEffect(() => {
-        let objKey =  getFormValueKey(structure.name);
+        let objKey = getFormValueKey(structure.name);
+        setValueKey(objKey)
         let formValue = getTableDataValue(value[objKey])
         setInputValue(formValue)
-    }, [structure,value])
+    }, [structure, value])
 
     return (
         <div className='form-box'>
-            <InputField detail={structure} value={inputValue} />
+            <InputField detail={structure} value={inputValue} title={valueKey} />
         </div>
     )
 }

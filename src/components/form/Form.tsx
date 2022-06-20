@@ -12,7 +12,7 @@ const Form = ({ data, cancel }: FormProps) => {
         <Container>
             {data.forms.map((form: any, index: number) =>
                 <div key={index}>
-                    <h2>{form.displayName}</h2>
+                    <h2 title="form-header">{form.displayName}</h2>
                     <hr />
                     <div>
                         {form.fieldsets.map((fieldset: any, index: number) => <div key={index}>

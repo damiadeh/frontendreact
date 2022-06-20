@@ -15,4 +15,5 @@ export interface FormProps{
 export interface InputFieldProps {
     detail: FieldDataDto;
     value: any;
+    title:string;
 }
